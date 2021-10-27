@@ -16,6 +16,11 @@ const Navbar = () => {
                 About
               </Link>
             </li>
+            <li className="nav-item active">
+              <Link className="nav-link btn" to="/home">
+                Home
+              </Link>
+            </li>
             <div className="container btn_login_signup d-flex">
             <li className="nav-item active">
               <Link className="nav-link" to="/login">

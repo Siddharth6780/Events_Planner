@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import About from "./components/About";
 import Login from "./components/Login";
 import Signup from "./components/Signup";
+import Container from "./components/Container";
 
 const App = () => {
   return (
@@ -16,10 +17,13 @@ const App = () => {
               <About />
             </Route>
             <Route exact path="/login">
-              <Login/>
+              <Login />
             </Route>
             <Route exact path="/signup">
-              <Signup/>
+              <Signup />
+            </Route>
+            <Route exact path="/home">
+              <Container />
             </Route>
           </Switch>
         </div>

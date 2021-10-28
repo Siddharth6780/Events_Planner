@@ -1,21 +1,35 @@
 import React from "react";
-import "./style.css"
+import "./style.css";
 
 const Container = () => {
   return (
     <>
       <div className="d-flex">
-        <div className="col-md-3">
+        <div className="col-md-4">
           <div className="card my-3">
             <div className="card-body">
               <div className="d-flex flex-column">
                 <h4 className="card-title">Rahul Events</h4>
               </div>
               <div className="d-flex flex-column">
-                <p className="card-text"><b>Purpose</b>: Marriage</p>
-                <p className="card-text"><b>Name</b>: Rahul Singh</p>
-                <p className="card-text"><b>Address</b>: Ranchi,Jharkahnd</p>
-                <p className="card-text"><b>Phone No.</b>: 9342316782</p>
+                <table className="table">
+                  <tr>
+                    <th>Purpose: </th>
+                    <td>Marriage</td>
+                  </tr>
+                  <tr>
+                    <th>Name: </th>
+                    <td>Rahul Singh</td>
+                  </tr>
+                  <tr>
+                    <th>Address: </th>
+                    <td>Ranchi,Jharkahnd</td>
+                  </tr>
+                  <tr>
+                    <th>Phone No.: </th>
+                    <td>9342316782</td>
+                  </tr>
+                </table>
               </div>
             </div>
           </div>

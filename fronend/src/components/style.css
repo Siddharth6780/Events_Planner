@@ -118,3 +118,6 @@ input[type="password"] {
     width: 80%;
   }
 }
+.card-text b{
+  font-weight: 500;
+}

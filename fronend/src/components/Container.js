@@ -1,4 +1,5 @@
 import React from "react";
+import "./style.css"
 
 const Container = () => {
   return (
@@ -19,13 +20,7 @@ const Container = () => {
             </div>
           </div>
         </div>
-
-        
       </div>
-
-
-
-  
     </>
   );
 };

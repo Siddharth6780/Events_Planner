@@ -118,12 +118,3 @@ input[type="password"] {
     width: 80%;
   }
 }
-
-
-.btn{
-  margin-top: 6px;
-}
-
-.btn_login_signup{
-  display: flex;
-}

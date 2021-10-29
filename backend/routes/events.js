@@ -4,7 +4,7 @@ const Events = require("../models/Events");
 const { body, validationResult } = require("express-validator");
 
 router.post(
-  "/",
+  "/insert",
   [
     body("title", "Enter Correct Title").isLength({ min: 3 }),
     body("name", "Enter Correct Name").isLength({ min: 5 }),
@@ -15,7 +15,6 @@ router.post(
     if (!errors.isEmpty()) {
       return res.status(400).json({ errors: errors.array() });
     }
-
     Events.create({
       title: req.body.title,
       purpose: req.body.purpose,
@@ -24,8 +23,17 @@ router.post(
       phone: req.body.phone,
     })
       .then((user) => res.json(user))
-      .catch((err) => console.log(err));
+      .catch((err) => res.status(500).send("Some Error occured"));
   }
 );
+
+router.get("/", async (req, res) => {
+  try {
+    const events = await Events.find({});
+    res.json(events);
+  } catch (err) {
+    res.status(500).send("Some Error occured");
+  }
+});
 
 module.exports = router;

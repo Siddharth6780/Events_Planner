@@ -22,7 +22,7 @@ const App = () => {
             <Route exact path="/signup">
               <Signup />
             </Route>
-            <Route exact path="/home">
+            <Route exact path="/events">
               <Container />
             </Route>
           </Switch>

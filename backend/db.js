@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 
 const mongo_uri =
-  "mongodb://localhost:27017/?readPreference=primary&appname=MongoDB%20Compass&ssl=false";
+  "mongodb://localhost:27017/Events_Planner?readPreference=primary&appname=MongoDB%20Compass&ssl=false";
 
 const connectToMongo = () => {
   mongoose.connect(mongo_uri, () => {

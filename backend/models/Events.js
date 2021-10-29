@@ -3,25 +3,26 @@ const { Schema } = mongoose;
 
 const EventsSchema = new Schema({
   title: {
-    type: string,
+    type: String,
     required: true,
   },
   purpose: {
-    type: string,
+    type: String,
     required: true,
   },
   name: {
-    type: string,
+    type: String,
     required: true,
   },
   address: {
-    type: string,
+    type: String,
     required: true,
   },
-  purpose: {
+  phone: {
     type: Number,
     required: true,
   },
 });
 
-module.export = mongoose.model("events", EventsSchema);
+const events = mongoose.model("events", EventsSchema);
+module.exports = events;

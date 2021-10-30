@@ -8,8 +8,7 @@ const port = 3000;
 app.use(express.json());
 
 app.use("/events", require("./routes/events"));
-app.use("/login", require("./routes/login"));
-app.use("/signup", require("./routes/signup"));
+app.use("/users", require("./routes/auth"));
 
 app.listen(port, () => {
   console.log(`Example app listening at http://localhost:${port}`);

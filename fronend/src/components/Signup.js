@@ -8,16 +8,12 @@ const Signup = () => {
 
   async function signupUser(e) {
     e.preventDefault();
-    const response = await fetch("https://localhost:3000/users/signup", {
-      mode: "no-cors",
-      method: "POST",
+    let url = "http://localhost:3000/users/signup";
+    const response = await fetch(url, {
+      mode: 'cors',
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({
-        email,
-        password,
-      }),
     });
     const data = response.json;
     console.log(data);

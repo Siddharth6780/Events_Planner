@@ -10,13 +10,17 @@ const Signup = () => {
     e.preventDefault();
     let url = "http://localhost:3000/users/signup";
     const response = await fetch(url, {
-      mode: 'cors',
+      method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
+      body: JSON.stringify({
+        email,
+        password,
+      }),
     });
-    const data = response.json;
-    console.log(data);
+    const data = await response.json;
+
   }
 
   return (

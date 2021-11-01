@@ -8,7 +8,7 @@ const Signup = () => {
 
   async function signupUser(e) {
     e.preventDefault();
-    let url = "http://localhost:3000/users/signup";
+    let url = process.env.REACT_APP_SIGNUP_API;
     const response = await fetch(url, {
       method: "POST",
       headers: {

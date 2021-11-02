@@ -4,8 +4,8 @@ import "./style.css"
 const Login = () => {
   return (
     <>
-      <div class="form_div">
-        <label class="form_label">LOGIN FORM</label>
+      <div className="form_div">
+        <label className="form_label">LOGIN FORM</label>
         <form action="">
           <p>
             <input type="email" placeholder="Enter Email" />

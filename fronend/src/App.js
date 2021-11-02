@@ -4,7 +4,7 @@ import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import About from "./components/About";
 import Login from "./components/Login";
 import Signup from "./components/Signup";
-import Container from "./components/Container";
+import Events from "./Events";
 
 const App = () => {
   return (
@@ -23,7 +23,7 @@ const App = () => {
               <Signup />
             </Route>
             <Route exact path="/events">
-              <Container />
+              <Events/>
             </Route>
           </Switch>
         </div>

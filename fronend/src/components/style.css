@@ -35,18 +35,18 @@ body {
 }
 .form_div input[type="email"],input[type="text"],
 input[type="password"] {
-  width: 230px;
+  width: 250px;
   height: 40px;
   border-radius: 2px;
   font-size: 17px;
-  padding-left: 5px;
+  padding-left: 10px;
   border: none;
 }
 .form_div input[type="submit"] {
   width: 230px;
   height: 40px;
   border: none;
-  border-radius: 2px;
+  border-radius: 10px;
   font-size: 17px;
   background-color: #7f8c8d;
   border-bottom: 3px solid #616a6b;

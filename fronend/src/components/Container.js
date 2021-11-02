@@ -1,7 +1,16 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "./style.css";
 
 const Container = () => {
+  async function getAllNote() {
+    let url = "http://localhost:3000/events";
+    const res = await fetch(url);
+    const data = await res.json();
+    console.log(data);
+  }
+  useEffect(() => {
+    getAllNote();
+  }, [])
   return (
     <>
       <div className="d-flex">

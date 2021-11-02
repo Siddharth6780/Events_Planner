@@ -4,9 +4,7 @@ const Auth = require("../models/Auth");
 const { body, validationResult } = require("express-validator");
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
-
-const JWT_TOKEN =
-  "ed6e3406efa8d18ff6b78c3f552fcbb950984a0b32a9d50945a5984591600fc5121516018e9a1eca4f10fe133e8ce91544841e24b0b7750911c1e3b6c13a4d96";
+const fetchuser = require("../middleware/fetchuser");
 
 router.post(
   "/signup",
@@ -22,10 +20,10 @@ router.post(
     try {
       var salt = await bcrypt.genSalt();
       var hasedPassword = await bcrypt.hash(req.body.password, salt);
-      const user  = await Auth.create({
+      const user = await Auth.create({
         email: req.body.email,
         password: hasedPassword,
-      })
+      });
 
       const data = {
         user: {
@@ -33,13 +31,12 @@ router.post(
         },
       };
 
-      const jwtData = await jwt.sign(data, JWT_TOKEN);
+      const jwtData = await jwt.sign(data, process.env.JWT_TOKEN);
       console.log(jwtData);
-      res.status(200).send({jwtData});
+      res.status(200).send({ jwtData });
 
     } catch (error) {
-      console.error(error.message);
-      res.status(500).send("Some Error occured");
+      res.status(500).send({ status: "false" });
     }
   }
 );
@@ -55,11 +52,31 @@ router.post("/login", async (req, res) => {
     }
     const passwordCompare = await bcrypt.compare(password, user.password);
     if (!passwordCompare) {
-      res.status(400).send("Wrong Details");
+      res.status(400).send({ status: "false" });
     }
-    res.status(200).send("Correct Details");
+
+    const data = {
+      user: {
+        id: user.id,
+      },
+    };
+
+    const jwtData = await jwt.sign(data, process.env.JWT_TOKEN);
+    console.log(jwtData);
+    res.status(200).send({ jwtData });
   } catch (error) {
-    res.status(400).send("Error Occured");
+    res.status(500).send({ status: "false" });
+  }
+});
+
+router.post("/getuser", fetchuser, async (req, res) => {
+  try {
+    userId = req.user.id;
+    const user = await Auth.findById(userId).select("-password");
+    res.send(user);
+  } catch (error) {
+    console.error(error.message);
+    res.status(500).send({ status: "false" });
   }
 });
 

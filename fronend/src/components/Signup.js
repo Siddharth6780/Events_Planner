@@ -9,18 +9,21 @@ const Signup = () => {
   async function signupUser(e) {
     e.preventDefault();
     let url = process.env.REACT_APP_SIGNUP_API;
-    const response = await fetch(url, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        email,
-        password,
-      }),
-    });
-    const data = await response.json;
-
+    try {
+      const response = await fetch(url, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          email,
+          password,
+        }),
+      });
+      const json = await response.json();
+    } catch (error) {
+      console.log("Err occured");
+    }
   }
 
   return (

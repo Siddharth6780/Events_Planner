@@ -1,34 +1,33 @@
 import React, { useEffect } from "react";
 import "./style.css";
 
-const Container = () => {
+const Container = ({ purpose, name, title, address, phone }) => {
   return (
     <>
-      <div className="d-flex">
         <div className="col-md-4">
           <div className="card my-3">
             <div className="card-body">
               <div className="d-flex flex-column">
-                <h4 className="card-title">Rahul Events</h4>
+                <h4 className="card-title">{title}</h4>
               </div>
               <div className="d-flex flex-column">
                 <table className="table">
                   <tbody>
                     <tr>
                       <th>Purpose: </th>
-                      <td>Marriage</td>
+                      <td>{purpose}</td>
                     </tr>
                     <tr>
                       <th>Name: </th>
-                      <td>Rahul Singh</td>
+                      <td>{name}</td>
                     </tr>
                     <tr>
                       <th>Address: </th>
-                      <td>Ranchi,Jharkahnd</td>
+                      <td>{address}</td>
                     </tr>
                     <tr>
                       <th>Phone No.: </th>
-                      <td>9342316782</td>
+                      <td>{phone}</td>
                     </tr>
                   </tbody>
                 </table>
@@ -36,7 +35,6 @@ const Container = () => {
             </div>
           </div>
         </div>
-      </div>
     </>
   );
 };

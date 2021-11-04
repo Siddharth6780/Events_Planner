@@ -3,7 +3,7 @@ import React from 'react'
 const AddEvents = () => {
     return (
         <>
-            Welcome to add events
+          Welcome to Add Events
         </>
     )
 }

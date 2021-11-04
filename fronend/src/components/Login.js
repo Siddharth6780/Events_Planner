@@ -1,20 +1,23 @@
 import React from "react";
-import "./style.css"
+import "./style.css";
 
 const Login = () => {
   return (
     <>
-      <div className="form_div">
-        <label className="form_label">LOGIN FORM</label>
-        <form action="">
+      <div class="login">
+        <div class="login-triangle"></div>
+
+        <h2 class="login-header">Log in</h2>
+
+        <form class="login-container">
           <p>
-            <input type="email" placeholder="Enter Email" />
+            <input type="email" placeholder="Email" />
           </p>
           <p>
-            <input type="password" placeholder="**********" />
+            <input type="password" placeholder="Password" />
           </p>
           <p>
-            <input type="submit" value="LOGIN" />
+            <input type="submit" value="Log in" />
           </p>
         </form>
       </div>

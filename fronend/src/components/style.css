@@ -1,123 +1,100 @@
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:400,700);
+
 body {
-  margin: 0 auto;
-  padding: 0px;
-  text-align: center;
-  width: 100%;
-}
-#wrapper {
-  margin: 0 auto;
-  padding: 0px;
-  text-align: center;
-  width: 995px;
-}
-#wrapper h1 {
-  margin-top: 50px;
-  font-size: 45px;
-  color: #424949;
-}
-#wrapper h1 p {
-  font-size: 18px;
-}
-.form_div {
-  width: 330px;
-  margin-left: 35%;
-  padding: 10px;
-  background-color: #212529;
-  margin-top: 40px;
-}
-.form_div .form_label {
-  margin: 15px;
-  margin-bottom: 30px;
-  font-size: 25px;
-  font-weight: bold;
-  color: white;
-  text-decoration: underline;
-}
-.form_div input[type="email"],input[type="text"],
-input[type="password"] {
-  width: 250px;
-  height: 40px;
-  border-radius: 2px;
-  font-size: 17px;
-  padding-left: 10px;
-  border: none;
-}
-.form_div input[type="submit"] {
-  width: 230px;
-  height: 40px;
-  border: none;
-  border-radius: 10px;
-  font-size: 17px;
-  background-color: #7f8c8d;
-  border-bottom: 3px solid #616a6b;
-  color: white;
-  font-weight: bold;
+  background: #456;
+  font-family: 'Open Sans', sans-serif;
 }
 
-@media only screen and (min-width: 700px) and (max-width: 995px) {
-  #wrapper {
-    width: 100%;
-  }
-  #wrapper h1 {
-    font-size: 30px;
-  }
-  .form_div {
-    width: 50%;
-    margin-left: 25%;
-    padding-left: 0px;
-    padding-right: 0px;
-  }
-  .form_div input[type="text"],
-  input[type="password"] {
-    width: 80%;
-  }
-  .form_div textarea {
-    width: 80%;
-  }
-  .form_div input[type="submit"] {
-    width: 80%;
-  }
+.login, .signup{
+  width: 400px;
+  margin: 16px auto;
+  font-size: 16px;
 }
-@media only screen and (min-width: 400px) and (max-width: 699px) {
-  #wrapper {
-    width: 100%;
-  }
-  #wrapper h1 {
-    font-size: 30px;
-  }
-  .form_div {
-    width: 60%;
-    margin-left: 20%;
-  }
-  .form_div input[type="text"],
-  input[type="password"] {
-    width: 80%;
-  }
-  .form_div input[type="submit"] {
-    width: 80%;
-  }
+
+/* Reset top and bottom margins from certain elements */
+.login-header,
+.login p,
+.signup-header,
+.signup p {
+  margin-top: 0;
+  margin-bottom: 0;
 }
-@media only screen and (min-width: 100px) and (max-width: 399px) {
-  #wrapper {
-    width: 100%;
-  }
-  #wrapper h1 {
-    font-size: 25px;
-  }
-  .form_div {
-    width: 90%;
-    margin-left: 5%;
-    padding-left: 0px;
-    padding-right: 0px;
-  }
-  .form_div input[type="text"],
-  input[type="password"] {
-    width: 80%;
-  }
-  .form_div input[type="submit"] {
-    width: 80%;
-  }
+
+/* The triangle form is achieved by a CSS hack */
+.login-triangle,.signup-triangle {
+  width: 0;
+  margin-right: auto;
+  margin-left: auto;
+  border: 12px solid transparent;
+  border-bottom-color: #28d;
 }
-.card-text b{
-  font-weight: 500;
+
+.login-header,.signup-header {
+  background: #28d;
+  padding: 20px;
+  font-size: 1.4em;
+  font-weight: normal;
+  text-align: center;
+  text-transform: uppercase;
+  color: #fff;
+}
+
+.login-container,.signup-container {
+  background: #ebebeb;
+  padding: 12px;
+}
+
+/* Every row inside .login-container is defined with p tags */
+.login p,.signup p {
+  padding: 12px;
+}
+
+.login input,.signup input {
+  box-sizing: border-box;
+  display: block;
+  width: 100%;
+  border-width: 1px;
+  border-style: solid;
+  padding: 16px;
+  outline: 0;
+  font-family: inherit;
+  font-size: 0.95em;
+}
+
+.login input[type="email"],
+.login input[type="password"],
+.signup input[type="email"],
+.signup input[type="password"],
+.signup input[type="text"]  {
+  background: #fff;
+  border-color: #bbb;
+  color: #555;
+}
+
+/* Text fields' focus effect */
+.login input[type="email"],
+.login input[type="password"],
+.signup input[type="email"],
+.signup input[type="password"],
+.signup input[type="text"] {
+  border-color: #888;
+}
+
+.login input[type="submit"],
+.signup input[type="submit"] {
+  background: #28d;
+  border-color: transparent;
+  color: #fff;
+  cursor: pointer;
+}
+
+.login input[type="submit"]:hover,
+.signup input[type="submit"]:hover {
+  background: #17c;
+}
+
+/* Buttons' focus effect */
+.login input[type="submit"]:focus,
+.signup input[type="submit"]:focus {
+  border-color: #05a;
 }

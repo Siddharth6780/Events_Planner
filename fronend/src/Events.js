@@ -16,7 +16,7 @@ const Events = () => {
 
   return (
     <>
-      <div className="row my-3 d-flex">
+      <div className="row my-3 d-flex main_container">
         <div class="d-flex justify-content-center mr-auto p-2 mx-2">
           <button type="button" class="btn btn-outline-primary mx-1">
             Party
@@ -31,13 +31,11 @@ const Events = () => {
             Birthday
           </button>
         </div>
-        <div class="d-flex justify-content-center ml-auto p-2">
-          <Link className="nav-link" to="/about">
-            <button type="button" class="btn btn-outline-primary mx-2">
-              Add Events
-            </button>
-          </Link>
-        </div>
+        <Link className="nav-link" to="/addEvents">
+          <button type="button" class="btn btn-outline-primary mx-2">
+            Add Events
+          </button>
+        </Link>
       </div>
       <div className="row my-3">
         {Events.map((ele) => {

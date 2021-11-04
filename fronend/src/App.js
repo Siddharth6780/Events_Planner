@@ -5,6 +5,7 @@ import About from "./components/About";
 import Login from "./components/Login";
 import Signup from "./components/Signup";
 import Events from "./Events";
+import AddEvents from "./components/AddEvents";
 
 const App = () => {
   return (
@@ -24,6 +25,9 @@ const App = () => {
             </Route>
             <Route exact path="/events">
               <Events/>
+            </Route>
+            <Route exact path="/addEvents">
+              <AddEvents/>
             </Route>
           </Switch>
         </div>

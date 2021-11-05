@@ -4,12 +4,12 @@ import "./style.css";
 const Login = () => {
   return (
     <>
-      <div class="login">
-        <div class="login-triangle"></div>
+      <div className="login">
+        <div className="login-triangle"></div>
 
-        <h2 class="login-header">Log in</h2>
+        <h2 className="login-header">Log in</h2>
 
-        <form class="login-container">
+        <form className="login-container">
           <p>
             <input type="email" placeholder="Email" />
           </p>

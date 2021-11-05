@@ -8,7 +8,7 @@ const Container = ({ purpose, name, title, address, phone }) => {
           <div className="card my-3">
             <div className="card-body main_container">
               <div className="d-flex flex-column">
-                <h4 className="card-title">{title}</h4>
+                <h4 className="card-title title_main">{title}</h4>
               </div>
               <div className="d-flex flex-column">
                 <table className="table main_container">

@@ -5,7 +5,7 @@ import Container from "./components/Container";
 const Events = () => {
   const [Events, setEvents] = useState([]);
   async function getAllNote() {
-    let url = "http://localhost:3000/events";
+    let url = process.env.REACT_APP_ALL_EVENTS;
     const res = await fetch(url);
     const data = await res.json();
     setEvents(data);

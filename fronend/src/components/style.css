@@ -2,9 +2,10 @@
 
 body {
   font-family: 'Open Sans', sans-serif;
+  /* background: #456; */
 }
 
-.login, .signup{
+.login, .signup,.addEvents{
   width: 400px;
   margin: 16px auto;
   font-size: 16px;
@@ -14,13 +15,15 @@ body {
 .login-header,
 .login p,
 .signup-header,
-.signup p {
+.signup p,
+.addEvents-header,
+.addEvents p {
   margin-top: 0;
   margin-bottom: 0;
 }
 
 /* The triangle form is achieved by a CSS hack */
-.login-triangle,.signup-triangle {
+.login-triangle,.signup-triangle,.addEvents-triangle {
   width: 0;
   margin-right: auto;
   margin-left: auto;
@@ -28,7 +31,7 @@ body {
   border-bottom-color: #28d;
 }
 
-.login-header,.signup-header {
+.login-header,.signup-header,.addEvents-header {
   background: #28d;
   padding: 20px;
   font-size: 1.4em;
@@ -38,17 +41,17 @@ body {
   color: #fff;
 }
 
-.login-container,.signup-container {
+.login-container,.signup-container,.addEvents-container {
   background: #c2c2c2;
   padding: 12px;
 }
 
 /* Every row inside .login-container is defined with p tags */
-.login p,.signup p {
+.login p,.signup p,.addEvents p {
   padding: 12px;
 }
 
-.login input,.signup input {
+.login input,.signup input,.addEvents input {
   box-sizing: border-box;
   display: block;
   width: 100%;
@@ -64,7 +67,9 @@ body {
 .login input[type="password"],
 .signup input[type="email"],
 .signup input[type="password"],
-.signup input[type="text"]  {
+.signup input[type="text"],
+.addEvents input[type="password"],
+.addEvents input[type="text"]  {
   background: #fff;
   border-color: #bbb;
   color: #555;
@@ -75,12 +80,16 @@ body {
 .login input[type="password"],
 .signup input[type="email"],
 .signup input[type="password"],
-.signup input[type="text"] {
+.signup input[type="text"],
+.addEvents input[type="email"],
+.addEvents input[type="password"],
+.addEvents input[type="text"] {
   border-color: #888;
 }
 
 .login input[type="submit"],
-.signup input[type="submit"] {
+.signup input[type="submit"],
+.addEvents input[type="submit"] {
   background: #28d;
   border-color: transparent;
   color: #fff;
@@ -88,13 +97,18 @@ body {
 }
 
 .login input[type="submit"]:hover,
-.signup input[type="submit"]:hover {
+.signup input[type="submit"]:hover,
+.addEvents input[type="submit"]:hover {
   background: #17c;
 }
 
 /* Buttons' focus effect */
 .login input[type="submit"]:focus,
-.signup input[type="submit"]:focus {
+.signup input[type="submit"]:focus,
+.addEvents input[type="submit"]:focus {
   border-color: #05a;
 }
 
+.title_main{
+  text-align: center;
+}

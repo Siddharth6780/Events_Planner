@@ -6,12 +6,12 @@ const Container = ({ purpose, name, title, address, phone }) => {
     <>
         <div className="col-md-4">
           <div className="card my-3">
-            <div className="card-body">
+            <div className="card-body main_container">
               <div className="d-flex flex-column">
                 <h4 className="card-title">{title}</h4>
               </div>
               <div className="d-flex flex-column">
-                <table className="table">
+                <table className="table main_container">
                   <tbody>
                     <tr>
                       <th>Purpose: </th>

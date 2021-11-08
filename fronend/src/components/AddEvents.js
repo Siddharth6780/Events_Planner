@@ -1,11 +1,11 @@
 import React, { useState } from "react";
 
 const AddEvents = () => {
-  const [title, setTitle] = useState();
-  const [name, setName] = useState();
-  const [purpose, setPurpose] = useState();
-  const [address, setAddress] = useState();
-  const [phone, setPhone] = useState();
+  const [title, setTitle] = useState("");
+  const [name, setName] = useState("");
+  const [purpose, setPurpose] = useState("");
+  const [address, setAddress] = useState("");
+  const [phone, setPhone] = useState("");
 
   async function OnSummit(e) {
     e.preventDefault();

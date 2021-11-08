@@ -15,7 +15,7 @@ router.post(
   async (req, res) => {
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
-      return res.status(400).json({ errors: errors.array() });
+      return res.status(400).json({ success: false, message: errors.array() });
     }
     try {
       var salt = await bcrypt.genSalt();
@@ -33,10 +33,9 @@ router.post(
 
       const jwtData = await jwt.sign(data, process.env.JWT_TOKEN);
       console.log(jwtData);
-      res.status(200).send({ jwtData });
-
+      res.status(200).json({ success: true, message: jwtData });
     } catch (error) {
-      res.status(500).send({ status: "false" });
+      res.status(500).json({ success: false, message: "Some Error Occured" });
     }
   }
 );
@@ -48,11 +47,11 @@ router.post("/login", async (req, res) => {
   try {
     let user = await Auth.findOne({ email });
     if (!user) {
-      res.status(400).send("Wrong Details");
+      res.status(400).json({ success: false, message: "Wrong Details" });
     }
     const passwordCompare = await bcrypt.compare(password, user.password);
     if (!passwordCompare) {
-      res.status(400).send({ status: "false" });
+      res.status(400).json({ success: false, message: "Wrong Details" });
     }
 
     const data = {
@@ -63,9 +62,9 @@ router.post("/login", async (req, res) => {
 
     const jwtData = await jwt.sign(data, process.env.JWT_TOKEN);
     console.log(jwtData);
-    res.status(200).send({ jwtData });
+    res.status(200).json({ success: true, message: jwtData });
   } catch (error) {
-    res.status(500).send({ status: "false" });
+    res.status(500).json({ success: false, message: "Some Error Occured" });
   }
 });
 
@@ -73,10 +72,10 @@ router.post("/getuser", fetchuser, async (req, res) => {
   try {
     userId = req.user.id;
     const user = await Auth.findById(userId).select("-password");
-    res.send(user);
+    res.json({ success: true, message: user });
   } catch (error) {
     console.error(error.message);
-    res.status(500).send({ status: "false" });
+    res.status(500).json({ success: false, message: "Some Error Occured" });
   }
 });
 

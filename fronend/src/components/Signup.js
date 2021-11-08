@@ -20,9 +20,10 @@ const Signup = () => {
           password,
         }),
       });
-      const json = await response.json();
+      const data = await response.json();
+      console.log(data);
     } catch (error) {
-      console.log("Err occured");
+      console.log("Error occured");
     }
   }
 
@@ -59,7 +60,7 @@ const Signup = () => {
             />
           </p>
           <p>
-            <input type="submit" value="SIGNUP" />
+            <input type="submit" value="Sign up" />
           </p>
         </form>
       </div>

@@ -1,7 +1,29 @@
-import React from "react";
+import React, { useState } from "react";
 import "./style.css";
 
 const Login = () => {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  async function LoginUser(e) {
+    e.preventDefault();
+    try {
+      const url = "http://localhost:3000/users/login";
+      const res = await fetch(url, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          email,
+          password,
+        }),
+      });
+      const data = await res.json();
+      console.log(data);
+    } catch (error) {
+      console.log(error);
+    }
+  }
   return (
     <>
       <div className="login">
@@ -9,12 +31,20 @@ const Login = () => {
 
         <h2 className="login-header">Log in</h2>
 
-        <form className="login-container">
+        <form className="login-container" onSubmit={LoginUser}>
           <p>
-            <input type="email" placeholder="Email" />
+            <input
+              type="email"
+              placeholder="Email"
+              onChange={(e) => setEmail(e.target.value)}
+            />
           </p>
           <p>
-            <input type="password" placeholder="Password" />
+            <input
+              type="password"
+              placeholder="Password"
+              onChange={(e) => setPassword(e.target.value)}
+            />
           </p>
           <p>
             <input type="submit" value="Log in" />

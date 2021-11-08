@@ -13,7 +13,7 @@ router.post(
   (req, res) => {
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
-      return res.status(400).json({ errors: errors.array() });
+      return res.status(400).json({ success: false, message: errors.array() });
     }
     Events.create({
       title: req.body.title,
@@ -22,17 +22,19 @@ router.post(
       address: req.body.address,
       phone: req.body.phone,
     })
-      .then((user) => res.json(user))
-      .catch((err) => res.status(500).send("Some Error occured"));
+      .then((user) => res.json({ success: true, message: user }))
+      .catch((err) =>
+        res.status(500).json({ success: false, message: "Some Error occured" })
+      );
   }
 );
 
 router.get("/", async (req, res) => {
   try {
     const events = await Events.find({});
-    res.json(events);
+    res.json({ success: true, message: events });
   } catch (err) {
-    res.status(500).send("Some Error occured");
+    res.status(500).json({ success: false, message: "Can't Fetch the data" });
   }
 });
 

@@ -8,7 +8,11 @@ const Events = () => {
     let url = process.env.REACT_APP_ALL_EVENTS;
     const res = await fetch(url);
     const data = await res.json();
-    setEvents(data.message);
+    if (data.success === false) {
+      alert(data.message);
+    } else {
+      setEvents(data.message);
+    }
   }
   useEffect(() => {
     getAllNote();

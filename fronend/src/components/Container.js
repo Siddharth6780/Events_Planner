@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import "./style.css";
 
 const Container = ({ purpose, name, title, address, phone }) => {

@@ -1,7 +1,9 @@
 import React, { useState } from "react";
+import { useHistory } from "react-router-dom";
 import "./style.css";
 
 const Login = () => {
+  let history = useHistory();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   async function LoginUser(e) {
@@ -19,7 +21,12 @@ const Login = () => {
         }),
       });
       const data = await res.json();
-      console.log(data);
+      if (data.success === false) {
+        alert(data.message);
+      } else {
+        localStorage.setItem("token", data.message);
+        history.push("/");
+      }
     } catch (error) {
       console.log(error);
     }

@@ -1,6 +1,11 @@
 import React, { useState } from "react";
+import { useHistory } from "react-router";
 
 const AddEvents = () => {
+  let history = useHistory();
+  if (!localStorage.getItem("token")) {
+    history.push("/users/login");
+  }
   const [title, setTitle] = useState("");
   const [name, setName] = useState("");
   const [purpose, setPurpose] = useState("");

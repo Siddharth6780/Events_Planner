@@ -9,7 +9,7 @@ const Login = () => {
   async function LoginUser(e) {
     e.preventDefault();
     try {
-      const url = "http://localhost:3000/users/login";
+      const url = process.env.REACT_APP_LOGIN_API;
       const res = await fetch(url, {
         method: "POST",
         headers: {

@@ -2,7 +2,15 @@ import React, { useContext } from "react";
 import EventsContext from "../context/Events/EventsContext";
 import "./style.css";
 
-const MyEventsContainer = ({ purpose, name, title, address, phone, id }) => {
+const MyEventsContainer = ({
+  purpose,
+  name,
+  title,
+  address,
+  phone,
+  id,
+  updateEvent,
+}) => {
   const context = useContext(EventsContext);
   const { deleteEvents, editEvents } = context;
   return (
@@ -24,7 +32,7 @@ const MyEventsContainer = ({ purpose, name, title, address, phone, id }) => {
                 <i
                   className="far fa-edit mx-2 fa-1x"
                   onClick={() => {
-                    editEvents(id);
+                    updateEvent(id);
                   }}
                 ></i>
               </div>

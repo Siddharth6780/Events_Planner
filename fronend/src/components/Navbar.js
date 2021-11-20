@@ -1,43 +1,71 @@
 import React from "react";
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
-import "./style.css";
+import { Link, useLocation, useHistory } from "react-router-dom";
 
-const Navbar = () => {
+const Home = () => {
+  let location = useLocation();
+  let history = useHistory();
+  const HandleLogout = () => {
+    localStorage.removeItem("token");
+    history.push("/users/login");
+  };
   return (
-    <>
+    <div>
       <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
-        <Link className="navbar-brand" to="/">
-          Navbar
-        </Link>
-        <div className="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul className="navbar-nav mr-auto">
-            <li className="nav-item active">
-              <Link className="nav-link" to="/events">
-                All Events
-              </Link>
-            </li>
-            <li className="nav-item active">
-              <Link className="nav-link" to="/about">
-                About
-              </Link>
-            </li>
-          </ul>
-          <form className="d-flex">
-            <Link className="nav-link" to="/users/login">
-              <button type="button" className="btn btn-primary">
-                Log In
-              </button>
-            </Link>
-            <Link className="nav-link" to="/users/signup">
-              <button type="button" className="btn btn-primary">
-                Sign Up
-              </button>
-            </Link>
-          </form>
+        <div className="container-fluid">
+          <Link className="navbar-brand" to="/">
+            M in M
+          </Link>
+          <div className="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul className="navbar-nav mr-auto">
+              <li className="nav-item active">
+                <Link className="nav-link" to="/events">
+                  All Events
+                </Link>
+              </li>
+              {localStorage.getItem("token") ? (
+                <li className="nav-item active">
+                  <Link className="nav-link" to="/myevents">
+                    My Events
+                  </Link>
+                </li>
+              ) : (
+                ""
+              )}
+              <li className="nav-item active">
+                <Link className="nav-link" to="/about">
+                  About
+                </Link>
+              </li>
+            </ul>
+            {!localStorage.getItem("token") ? (
+              <form className="d-flex p-2 bd-highlight">
+                <Link
+                  className="btn btn-primary mx-2"
+                  to="/users/login"
+                  role="button"
+                >
+                  Login
+                </Link>
+                <Link
+                  className="btn btn-primary mx-2"
+                  to="/users/signup"
+                  role="button"
+                >
+                  Signup
+                </Link>
+              </form>
+            ) : (
+              <form className="d-flex p-2 bd-highlight">
+                <button onClick={HandleLogout} className="btn btn-primary mx-2">
+                  Logut
+                </button>
+              </form>
+            )}
+          </div>
         </div>
       </nav>
-    </>
+    </div>
   );
 };
 
-export default Navbar;
+export default Home;

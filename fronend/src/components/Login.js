@@ -1,6 +1,9 @@
 import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
 import "./style.css";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+toast.configure();
 
 const Login = () => {
   let history = useHistory();
@@ -22,13 +25,14 @@ const Login = () => {
       });
       const data = await res.json();
       if (data.success === false) {
-        alert(data.message);
+        toast.error("Enter Correct Details");
       } else {
+        toast.success("Login successfully");
         localStorage.setItem("token", data.message);
         history.push("/");
       }
     } catch (error) {
-      console.log(error);
+      toast.error("Some error occurred");
     }
   }
   return (

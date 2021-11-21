@@ -8,6 +8,9 @@ import Events from "./Events";
 import AddEvents from "./components/AddEvents";
 import MyEvents from "./components/MyEvents";
 import NoteState from "./context/Events/EventsState";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+toast.configure();
 
 const App = () => {
   return (
@@ -39,6 +42,7 @@ const App = () => {
           </div>
         </Router>
       </NoteState>
+      <ToastContainer />
     </>
   );
 };

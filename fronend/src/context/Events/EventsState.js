@@ -1,7 +1,12 @@
 import { useState } from "react";
 import EventsContext from "./EventsContext";
+import { useHistory } from "react-router";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+toast.configure();
 
 const NoteState = (props) => {
+  let history = useHistory();
   const Eventsinitial = [];
   const [Events, setEvents] = useState(Eventsinitial);
 
@@ -16,7 +21,7 @@ const NoteState = (props) => {
     });
     const data = await res.json();
     if (data.success === false) {
-      alert(data.message);
+      toast.error("Some error occurred");
     } else {
       setEvents(data.message);
     }
@@ -33,11 +38,12 @@ const NoteState = (props) => {
     });
     const data = await res.json();
     if (data.success === false) {
-      alert(data.message);
+      toast.error("Some error occurred");
     } else {
       const newEvents = Events.filter((ele) => {
         return ele._id !== id;
       });
+      toast.success("Event deleted");
       setEvents(newEvents);
     }
   };
@@ -55,7 +61,7 @@ const NoteState = (props) => {
     });
     const data = await res.json();
     if (data.success === false) {
-      alert(data.message);
+      toast.error("Some error occurred");
     } else {
       let newEvents = JSON.parse(JSON.stringify(Events));
       for (let index = 0; index < newEvents.length; index++) {
@@ -69,6 +75,7 @@ const NoteState = (props) => {
           break;
         }
       }
+      toast.success("Event edited");
       setEvents(newEvents);
     }
   };

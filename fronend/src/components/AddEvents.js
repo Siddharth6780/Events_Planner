@@ -1,5 +1,8 @@
 import React, { useState } from "react";
 import { useHistory } from "react-router";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+toast.configure();
 
 const AddEvents = () => {
   let history = useHistory();
@@ -12,7 +15,7 @@ const AddEvents = () => {
   const [address, setAddress] = useState("");
   const [phone, setPhone] = useState("");
 
-  async function OnSummit(e) {
+  const OnSummit = async (e) => {
     e.preventDefault();
     try {
       const url = process.env.REACT_APP_INSERT_EVENTS;
@@ -32,11 +35,16 @@ const AddEvents = () => {
         }),
       });
       const data = await res.json();
-      console.log(data);
+      if (data.success === true) {
+        toast.success("Event added");
+        history.push("./myevents");
+      } else {
+        toast.error("Enter Correct Details");
+      }
     } catch (error) {
-      console.log("Err occured");
+      toast.error("Some error occurred");
     }
-  }
+  };
   return (
     <>
       <div className="addEvents">
@@ -44,7 +52,7 @@ const AddEvents = () => {
 
         <h2 className="addEvents-header">Add Event</h2>
 
-        <form className="addEvents-container" onClick={OnSummit}>
+        <form className="addEvents-container" onSubmit={OnSummit}>
           <p>
             <input
               type="text"

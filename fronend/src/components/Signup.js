@@ -1,6 +1,9 @@
 import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
 import "./style.css";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+toast.configure();
 
 const Signup = () => {
   let history = useHistory();
@@ -24,14 +27,14 @@ const Signup = () => {
       });
       const data = await response.json();
       if (data.success === false) {
-        alert(data.message);
+        toast.error("Enter Correct Details");
       } else {
+        toast.success("Signup successfully");
         localStorage.setItem("token", data.message);
         history.push("/");
       }
-      console.log(data);
     } catch (error) {
-      console.log("Error occured");
+      toast.error("Some error occurred");
     }
   }
 

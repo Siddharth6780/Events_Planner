@@ -23,6 +23,7 @@ const Event = () => {
         {Events.map((ele) => {
           return (
             <Container
+              key={ele._id}
               purpose={ele.purpose}
               name={ele.name}
               title={ele.title}

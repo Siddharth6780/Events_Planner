@@ -34,23 +34,23 @@ router.post(
 
 router.put("/updateEvents/:id", fetchuser, async (req, res) => {
   try {
-    const { title, purpose, name, address, phone } = req.body;
+    const { etitle, epurpose, ename, eaddress, ephone } = req.body;
     const newEvent = {};
     try {
-      if (title) {
-        newEvent.title = title;
+      if (etitle) {
+        newEvent.title = etitle;
       }
-      if (purpose) {
-        newEvent.purpose = purpose;
+      if (epurpose) {
+        newEvent.purpose = epurpose;
       }
-      if (name) {
-        newEvent.name = name;
+      if (ename) {
+        newEvent.name = ename;
       }
-      if (address) {
-        newEvent.address = address;
+      if (eaddress) {
+        newEvent.address = eaddress;
       }
-      if (phone) {
-        newEvent.phone = phone;
+      if (ephone) {
+        newEvent.phone = ephone;
       }
 
       let event = await Events.findById(req.params.id);

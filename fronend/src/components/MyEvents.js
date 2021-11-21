@@ -1,21 +1,30 @@
-import React, { useContext, useEffect, useRef } from "react";
+import React, { useContext, useEffect, useRef, useState } from "react";
 import Buttons from "./Buttons";
 import EventsContext from "../context/Events/EventsContext";
 import MyEventsContainer from "./MyEventsContainer";
 
 const MyEvents = () => {
   const context = useContext(EventsContext);
-  const { Events, setEvents, getMyEvents } = context;
+  const { Events, setEvents, getMyEvents, editEvents } = context;
+
+  const [etitle, seteTitle] = useState("");
+  const [ename, seteName] = useState("");
+  const [epurpose, setePurpose] = useState("");
+  const [eaddress, seteAddress] = useState("");
+  const [ephone, setePhone] = useState("");
+
+  const [Event, setEvent] = useState({});
+
+  const ref = useRef(null);
+
+  const updateEvent = ({ purpose, name, title, address, phone, id }) => {
+    ref.current.click();
+    setEvent({ purpose, name, title, address, phone, id });
+  };
 
   useEffect(() => {
     getMyEvents();
   }, []);
-
-  const ref = useRef(null);
-
-  const updateEvent = (id) => {
-    ref.current.click();
-  };
 
   return (
     <div>
@@ -60,6 +69,7 @@ const MyEvents = () => {
                     minLength={5}
                     required
                     type="text"
+                    onChange={(e) => seteTitle(e.target.value)}
                     className="form-control"
                     id="etitle"
                     name="etitle"
@@ -74,6 +84,7 @@ const MyEvents = () => {
                     minLength={5}
                     required
                     type="text"
+                    onChange={(e) => setePurpose(e.target.value)}
                     className="form-control"
                     id="epurpose"
                     name="epurpose"
@@ -90,6 +101,7 @@ const MyEvents = () => {
                     className="form-control"
                     id="edescription"
                     name="edescription"
+                    onChange={(e) => seteName(e.target.value)}
                   />
                 </div>
                 <div className="mb-3">
@@ -103,6 +115,7 @@ const MyEvents = () => {
                     className="form-control"
                     id="eaddress"
                     name="eaddress"
+                    onChange={(e) => seteAddress(e.target.value)}
                   />
                 </div>
                 <div className="mb-3">
@@ -114,6 +127,7 @@ const MyEvents = () => {
                     required
                     type="text"
                     className="form-control"
+                    onChange={(e) => setePhone(e.target.value)}
                     id="ephone"
                     name="ephone"
                   />
@@ -128,7 +142,20 @@ const MyEvents = () => {
               >
                 Close
               </button>
-              <button type="button" className="btn btn-primary">
+              <button
+                type="button"
+                className="btn btn-primary"
+                onClick={() => {
+                  editEvents(
+                    Event.id,
+                    etitle,
+                    epurpose,
+                    ename,
+                    eaddress,
+                    ephone
+                  );
+                }}
+              >
                 Update Note
               </button>
             </div>
@@ -140,6 +167,7 @@ const MyEvents = () => {
         {Events.map((ele) => {
           return (
             <MyEventsContainer
+              key={ele._id}
               purpose={ele.purpose}
               name={ele.name}
               title={ele.title}

@@ -42,7 +42,7 @@ const App = () => {
           </div>
         </Router>
       </NoteState>
-      <ToastContainer />
+      <ToastContainer autoClose={2000} />
     </>
   );
 };

@@ -2,10 +2,11 @@ import React, { useContext, useEffect, useRef, useState } from "react";
 import Buttons from "./Buttons";
 import EventsContext from "../context/Events/EventsContext";
 import MyEventsContainer from "./MyEventsContainer";
+import ButtonsContainer from "./ButtonsContainer";
 
 const MyEvents = () => {
   const context = useContext(EventsContext);
-  const { Events, setEvents, getMyEvents, editEvents } = context;
+  const { Events, getMyEvents, editEvents } = context;
 
   const [etitle, seteTitle] = useState("");
   const [ename, seteName] = useState("");
@@ -28,7 +29,7 @@ const MyEvents = () => {
 
   return (
     <div>
-      <Buttons />
+      <ButtonsContainer/>
 
       <button
         ref={ref}

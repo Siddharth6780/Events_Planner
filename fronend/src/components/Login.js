@@ -25,7 +25,7 @@ const Login = () => {
       });
       const data = await res.json();
       if (data.success === false) {
-        toast.error("Enter Correct Details");
+        toast.error("Enter correct details");
       } else {
         toast.success("Login successfully");
         localStorage.setItem("token", data.message);

@@ -16,6 +16,7 @@ app.use(
 
 app.use("/events", require("./routes/events"));
 app.use("/users", require("./routes/auth"));
+app.use("/checkout", require("./routes/payment"));
 
 app.listen(port, () => {
   console.log(`Example app listening at http://localhost:${port}`);

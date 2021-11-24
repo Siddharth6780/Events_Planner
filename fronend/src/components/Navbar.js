@@ -1,10 +1,14 @@
 import React from "react";
 import { Link, useLocation, useHistory } from "react-router-dom";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+toast.configure();
 
 const Home = () => {
   let location = useLocation();
   let history = useHistory();
   const HandleLogout = () => {
+    toast.success("Logout successfully");
     localStorage.removeItem("token");
     history.push("/users/login");
   };

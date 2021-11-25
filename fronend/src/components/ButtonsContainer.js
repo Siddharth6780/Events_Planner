@@ -17,7 +17,7 @@ const ButtonsContainer = () => {
 
   const btnContainer = new Set();
   Button.map((ele) => {
-    btnContainer.add(ele.title);
+    btnContainer.add(ele.purpose);
   });
   const it = [...btnContainer];
 

@@ -112,3 +112,36 @@ body {
 .title_main{
   text-align: center;
 }
+
+.main_css{
+  display: block;
+  font-size: 1.1875rem;
+  font-size: clamp(1.125rem,1.05682rem + .22727vw,1.25rem);
+  font-weight: 600;
+  line-height: 1.53125rem;
+  line-height: clamp(1.4375rem,1.33523rem + .34091vw,1.625rem);
+  margin-bottom: 0.5rem;
+  word-break: break-word;
+}
+
+.address_css{
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.address_css_div{
+  align-items: center;
+  display: flex;
+  flex: 1 0 auto;
+  font-size: .9rem;
+  line-height: 1.3125rem;
+  margin-bottom: 0.5rem;
+}
+.card-body {
+  -ms-flex: 1 1 auto;
+  flex: 1 1 auto;
+  padding: 0.75rem;
+}

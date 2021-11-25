@@ -29,6 +29,9 @@ const Event = () => {
               title={ele.title}
               address={ele.address}
               phone={ele.phone}
+              description={ele.description}
+              price={ele.price}
+              photo={ele.photo}
             />
           );
         })}

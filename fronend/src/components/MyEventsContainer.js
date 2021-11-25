@@ -9,11 +9,14 @@ const MyEventsContainer = ({
   address,
   phone,
   id,
+  price,
   updateEvent,
+  photo,
+  description,
 }) => {
   const context = useContext(EventsContext);
   const { deleteEvents, editEvents } = context;
-
+  console.log(photo);
   return (
     <>
       <div className="col-md-4">
@@ -35,7 +38,7 @@ const MyEventsContainer = ({
                 <i
                   className="far fa-edit mx-2 fa-1x"
                   onClick={() => {
-                    updateEvent({ purpose, name, title, address, phone, id });
+                    updateEvent({ purpose, name, title, address, phone, id, description, photo, price });
                   }}
                 >
                   {" "}
@@ -43,31 +46,43 @@ const MyEventsContainer = ({
                 </i>
               </div>
             </div>
-            <div className="d-flex flex-column">
+            <div className="d-flex flex-column card-body">
               <article class="u-shadow-v18 g-bg-white text-center rounded g-px-20 g-py-40 g-mb-5">
                 <img
                   class="d-inline-block img-fluid mb-2"
-                  src="https://cdn0.weddingwire.in/vendor/5985/3_2/640/jpeg/abe63f39-6053-4688-b6c2-845d40cd38fb_15_355985-162737263512015.webp"
+                  src={photo}
                   alt="Image Description"
                 />
-                <h4 class="h5 g-color-black g-font-weight-600 g-mb-5 main_css">
-                  {title}
-                </h4>
-                <div className="d-flex bd-highlight">
-                  <div className=" p-2 bd-highlight">
-                    <span className="address_css">
-                      <i class="fa fa-map-marker" aria-hidden="true"></i>{" "}
-                      {address}
-                    </span>
-                  </div>
-
-                  <div className="ml-auto p-2 bd-highlight">
-                    <span className="address_css">{purpose}</span>
-                  </div>
+                <div className="d-flex flex-column">
+                  <table className="table main_container">
+                    <tbody>
+                      <tr>
+                        <th>Purpose: </th>
+                        <td>{purpose}</td>
+                      </tr>
+                      <tr>
+                        <th>Name: </th>
+                        <td>{name}</td>
+                      </tr>
+                      <tr>
+                        <th>Price: </th>
+                        <td>रु{price}</td>
+                      </tr>
+                      <tr>
+                        <th>Address: </th>
+                        <td>{address}</td>
+                      </tr>
+                      <tr>
+                        <th>Phone No.: </th>
+                        <td>र{phone}</td>
+                      </tr>
+                      <tr>
+                        <th>Description: </th>
+                        <td>{description}</td>
+                      </tr>
+                    </tbody>
+                  </table>
                 </div>
-                <span class="d-block g-color-primary g-font-size-16 mb-3">
-                  <i class="fas fa-coins"></i> $50.00
-                </span>
               </article>
             </div>
           </div>

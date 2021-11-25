@@ -23,6 +23,9 @@ router.post(
       name: req.body.name,
       address: req.body.address,
       phone: req.body.phone,
+      description: req.body.description,
+      price: req.body.price,
+      photo: req.body.photo,
       user: req.user.id,
     })
       .then((user) => res.json({ success: true, message: user }))
@@ -34,7 +37,7 @@ router.post(
 
 router.put("/updateEvents/:id", fetchuser, async (req, res) => {
   try {
-    const { etitle, epurpose, ename, eaddress, ephone } = req.body;
+    const { etitle, epurpose, ename, eaddress, ephone, edescription, eprice, ephoto } = req.body;
     const newEvent = {};
     try {
       if (etitle) {
@@ -51,6 +54,15 @@ router.put("/updateEvents/:id", fetchuser, async (req, res) => {
       }
       if (ephone) {
         newEvent.phone = ephone;
+      }
+      if (edescription) {
+        newEvent.description = edescription;
+      }
+      if (eprice) {
+        newEvent.price = eprice;
+      }
+      if (ephoto) {
+        newEvent.photo = ephoto;
       }
 
       let event = await Events.findById(req.params.id);

@@ -26,6 +26,17 @@ const EventsSchema = new Schema({
     type: Number,
     required: true,
   },
+  description: {
+    type: String,
+    required: true,
+  },
+  price: {
+    type: Number,
+    required: true,
+  },
+  photo: {
+    type: String,
+  }
 });
 
 const events = mongoose.model("events", EventsSchema);

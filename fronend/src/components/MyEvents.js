@@ -13,14 +13,17 @@ const MyEvents = () => {
   const [epurpose, setePurpose] = useState("");
   const [eaddress, seteAddress] = useState("");
   const [ephone, setePhone] = useState("");
+  const [edescription, seteDescription] = useState("");
+  const [eprice, setePrice] = useState("");
+  const [ephoto, setePhoto] = useState("");
 
   const [Event, setEvent] = useState({});
 
   const ref = useRef(null);
 
-  const updateEvent = ({ purpose, name, title, address, phone, id }) => {
+  const updateEvent = ({ purpose, name, title, address, phone, id, photo, description }) => {
     ref.current.click();
-    setEvent({ purpose, name, title, address, phone, id });
+    setEvent({ purpose, name, title, address, phone, id, photo, description });
   };
 
   useEffect(() => {
@@ -29,7 +32,7 @@ const MyEvents = () => {
 
   return (
     <div>
-      <ButtonsContainer/>
+      <ButtonsContainer />
 
       <button
         ref={ref}
@@ -133,6 +136,48 @@ const MyEvents = () => {
                     name="ephone"
                   />
                 </div>
+                <div className="mb-3">
+                  <label htmlFor="phone" className="form-label">
+                    Description
+                  </label>
+                  <input
+                    minLength={5}
+                    required
+                    type="text"
+                    className="form-control"
+                    onChange={(e) => seteDescription(e.target.value)}
+                    id="ephone"
+                    name="ephone"
+                  />
+                </div>
+                <div className="mb-3">
+                  <label htmlFor="phone" className="form-label">
+                    Price
+                  </label>
+                  <input
+                    minLength={5}
+                    required
+                    type="text"
+                    className="form-control"
+                    onChange={(e) => setePrice(e.target.value)}
+                    id="ephone"
+                    name="ephone"
+                  />
+                </div>
+                <div className="mb-3">
+                  <label htmlFor="phone" className="form-label">
+                    Photo Link
+                  </label>
+                  <input
+                    minLength={5}
+                    required
+                    type="text"
+                    className="form-control"
+                    onChange={(e) => setePhoto(e.target.value)}
+                    id="ephone"
+                    name="ephone"
+                  />
+                </div>
               </form>
             </div>
             <div className="modal-footer">
@@ -153,7 +198,10 @@ const MyEvents = () => {
                     epurpose,
                     ename,
                     eaddress,
-                    ephone
+                    ephone,
+                    edescription,
+                    eprice,
+                    ephoto,
                   );
                 }}
               >
@@ -175,7 +223,10 @@ const MyEvents = () => {
               address={ele.address}
               phone={ele.phone}
               id={ele._id}
+              description={ele.description}
               updateEvent={updateEvent}
+              price={ele.price}
+              photo={ele.photo}
             />
           );
         })}

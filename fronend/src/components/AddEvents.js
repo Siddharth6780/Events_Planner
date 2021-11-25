@@ -14,6 +14,9 @@ const AddEvents = () => {
   const [purpose, setPurpose] = useState("");
   const [address, setAddress] = useState("");
   const [phone, setPhone] = useState("");
+  const [description, setDescription] = useState("");
+  const [price, setPrice] = useState("");
+  const [photo, setPhoto] = useState("");
 
   const OnSummit = async (e) => {
     e.preventDefault();
@@ -32,6 +35,9 @@ const AddEvents = () => {
           purpose,
           address,
           phone,
+          description,
+          price,
+          photo,
         }),
       });
       const data = await res.json();
@@ -93,6 +99,30 @@ const AddEvents = () => {
               placeholder="Phone"
               pattern="[0-9]{10}"
               onChange={(e) => setPhone(e.target.value)}
+            />
+          </p>
+          <p>
+            <input
+              type="text"
+              value={description}
+              placeholder="Description"
+              onChange={(e) => setDescription(e.target.value)}
+            />
+          </p>
+          <p>
+            <input
+              type="text"
+              value={price}
+              placeholder="Price"
+              onChange={(e) => setPrice(e.target.value)}
+            />
+          </p>
+          <p>
+            <input
+              type="text"
+              value={photo}
+              placeholder="Price"
+              onChange={(e) => setPhoto(e.target.value)}
             />
           </p>
           <p>

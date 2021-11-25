@@ -48,7 +48,7 @@ const NoteState = (props) => {
     }
   };
 
-  const editEvents = async (id, etitle, epurpose, ename, eaddress, ephone) => {
+  const editEvents = async (id, etitle, epurpose, ename, eaddress, ephone, edescription, eprice, ephoto) => {
     let url = `http://localhost:3000/events/updateEvents/${id}`;
     const res = await fetch(url, {
       method: "PUT",
@@ -57,7 +57,7 @@ const NoteState = (props) => {
         "auth-token":
           "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjE4Zjk1YjAyMDljNmNiZWY1NTI1ODE2In0sImlhdCI6MTYzNzMwNTg4MX0.Kjc3Sw0mjOufe4ofoqyR5XPEC_oEgaw07Y70Nq70NkM",
       },
-      body: JSON.stringify({ id, etitle, epurpose, ename, eaddress, ephone }),
+      body: JSON.stringify({ id, etitle, epurpose, ename, eaddress, ephone, edescription, eprice, ephoto }),
     });
     const data = await res.json();
     if (data.success === false) {
@@ -72,6 +72,9 @@ const NoteState = (props) => {
           newEvents[index].name = ename;
           newEvents[index].address = eaddress;
           newEvents[index].phone = ephone;
+          newEvents[index].description = edescription;
+          newEvents[index].price = eprice;
+          newEvents[index].photo = ephoto;
           break;
         }
       }

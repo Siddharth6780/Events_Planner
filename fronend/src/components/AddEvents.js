@@ -120,7 +120,7 @@ const AddEvents = () => {
             <input
               type="text"
               value={photo}
-              placeholder="Price"
+              placeholder="Photo Link"
               onChange={(e) => setPhoto(e.target.value)}
             />
           </p>

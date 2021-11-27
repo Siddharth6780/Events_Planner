@@ -1,11 +1,13 @@
 @import url(https://fonts.googleapis.com/css?family=Open+Sans:400,700);
 
 body {
-  font-family: 'Open Sans', sans-serif;
+  font-family: "Open Sans", sans-serif;
   /* background: #456; */
 }
 
-.login, .signup,.addEvents{
+.login,
+.signup,
+.addEvents {
   width: 400px;
   margin: 16px auto;
   font-size: 16px;
@@ -23,7 +25,9 @@ body {
 }
 
 /* The triangle form is achieved by a CSS hack */
-.login-triangle,.signup-triangle,.addEvents-triangle {
+.login-triangle,
+.signup-triangle,
+.addEvents-triangle {
   width: 0;
   margin-right: auto;
   margin-left: auto;
@@ -31,7 +35,9 @@ body {
   border-bottom-color: #28d;
 }
 
-.login-header,.signup-header,.addEvents-header {
+.login-header,
+.signup-header,
+.addEvents-header {
   background: #28d;
   padding: 20px;
   font-size: 1.4em;
@@ -41,17 +47,23 @@ body {
   color: #fff;
 }
 
-.login-container,.signup-container,.addEvents-container {
+.login-container,
+.signup-container,
+.addEvents-container {
   background: #c2c2c2;
   padding: 12px;
 }
 
 /* Every row inside .login-container is defined with p tags */
-.login p,.signup p,.addEvents p {
+.login p,
+.signup p,
+.addEvents p {
   padding: 12px;
 }
 
-.login input,.signup input,.addEvents input {
+.login input,
+.signup input,
+.addEvents input {
   box-sizing: border-box;
   display: block;
   width: 100%;
@@ -69,7 +81,8 @@ body {
 .signup input[type="password"],
 .signup input[type="text"],
 .addEvents input[type="password"],
-.addEvents input[type="text"]  {
+.addEvents input[type="text"], 
+.addEvents input[type="tel"]{
   background: #fff;
   border-color: #bbb;
   color: #555;
@@ -83,7 +96,8 @@ body {
 .signup input[type="text"],
 .addEvents input[type="email"],
 .addEvents input[type="password"],
-.addEvents input[type="text"] {
+.addEvents input[type="text"],
+.addEvents input[type="tel"] {
   border-color: #888;
 }
 
@@ -109,22 +123,22 @@ body {
   border-color: #05a;
 }
 
-.title_main{
+.title_main {
   text-align: center;
 }
 
-.main_css{
+.main_css {
   display: block;
   font-size: 1.1875rem;
-  font-size: clamp(1.125rem,1.05682rem + .22727vw,1.25rem);
+  font-size: clamp(1.125rem, 1.05682rem + 0.22727vw, 1.25rem);
   font-weight: 600;
   line-height: 1.53125rem;
-  line-height: clamp(1.4375rem,1.33523rem + .34091vw,1.625rem);
+  line-height: clamp(1.4375rem, 1.33523rem + 0.34091vw, 1.625rem);
   margin-bottom: 0.5rem;
   word-break: break-word;
 }
 
-.address_css{
+.address_css {
   flex: 1;
   min-width: 0;
   overflow: hidden;
@@ -132,11 +146,11 @@ body {
   white-space: nowrap;
 }
 
-.address_css_div{
+.address_css_div {
   align-items: center;
   display: flex;
   flex: 1 0 auto;
-  font-size: .9rem;
+  font-size: 0.9rem;
   line-height: 1.3125rem;
   margin-bottom: 0.5rem;
 }
@@ -144,4 +158,9 @@ body {
   -ms-flex: 1 1 auto;
   flex: 1 1 auto;
   padding: 0.75rem;
+}
+
+.jumbotron {
+  background-color: #ffffff;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160' viewBox='0 0 200 200'%3E%3Cpolygon fill='%23DCEFFA' points='100 0 0 100 100 100 100 200 200 100 200 0'/%3E%3C/svg%3E");
 }

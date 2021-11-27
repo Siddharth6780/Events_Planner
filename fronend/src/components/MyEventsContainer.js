@@ -74,7 +74,7 @@ const MyEventsContainer = ({
                       </tr>
                       <tr>
                         <th>Phone No.: </th>
-                        <td>र{phone}</td>
+                        <td>{phone}</td>
                       </tr>
                       <tr>
                         <th>Description: </th>

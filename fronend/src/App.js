@@ -10,6 +10,7 @@ import MyEvents from "./components/MyEvents";
 import NoteState from "./context/Events/EventsState";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import Home from "./components/Home";
 toast.configure();
 
 const App = () => {
@@ -37,6 +38,9 @@ const App = () => {
               </Route>
               <Route exact path="/myevents">
                 <MyEvents />
+              </Route>
+              <Route exact path="/">
+                <Home />
               </Route>
             </Switch>
           </div>

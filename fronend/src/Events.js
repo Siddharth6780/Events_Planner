@@ -1,5 +1,4 @@
 import React from 'react'
-import Buttons from './components/Buttons'
 import ButtonsContainer from './components/ButtonsContainer'
 import Event from './components/Event'
 

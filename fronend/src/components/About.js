@@ -8,20 +8,15 @@ const About = () => {
                     <h1 className="display-4">Siddharth</h1>
                     <p>Links</p>
                     <p className="lead">
-                        <a  href="http://">Linkedin</a>
+                        <a href="https://www.linkedin.com/in/siddharthbit/">Linkedin</a>
                         <br />
-                        <a href="http://">Github</a>
+                        <a href="https://github.com/Siddharth6780">Github</a>
                         <br />
                     </p>
                     <hr className="my-4" />
 
                     <p>Name : Siddharth</p>
                     <p>email : siddharth6780@gmail.com</p>
-                    <p className="lead">
-                        <a className="btn btn-primary btn-lg" href="#" role="button">
-                            Learn more
-                        </a>
-                    </p>
                 </div>
             </div>
         </>

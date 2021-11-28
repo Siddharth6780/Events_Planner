@@ -1,5 +1,7 @@
 const express = require("express");
 const router = express.Router();
+const dotenv = require("dotenv");
+dotenv.config();
 const stripe = require("stripe")(process.env.PRIVATE_KEY);
 const uuid = require("uuid").v4;
 

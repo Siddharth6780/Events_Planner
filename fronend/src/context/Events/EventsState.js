@@ -11,7 +11,7 @@ const NoteState = (props) => {
   const [Events, setEvents] = useState(Eventsinitial);
 
   const getMyEvents = async () => {
-    let url = "https://manageinminutesbackend.herokuapp.com/events/myevents";
+    let url = "https://backend-manage-in-minutes.onrender.com/events/myevents";
     const res = await fetch(url, {
       method: "GET",
       headers: {
@@ -27,7 +27,7 @@ const NoteState = (props) => {
   };
 
   const deleteEvents = async (id) => {
-    let url = `https://manageinminutesbackend.herokuapp.com/events/deleteEvent/${id}`;
+    let url = `https://backend-manage-in-minutes.onrender.com/events/deleteEvent/${id}`;
     const res = await fetch(url, {
       method: "DELETE",
       headers: {
@@ -47,7 +47,7 @@ const NoteState = (props) => {
   };
 
   const editEvents = async (id, etitle, epurpose, ename, eaddress, ephone, edescription, eprice, ephoto) => {
-    let url = `https://manageinminutesbackend.herokuapp.com/events/updateEvents/${id}`;
+    let url = `https://backend-manage-in-minutes.onrender.com/events/updateEvents/${id}`;
     const res = await fetch(url, {
       method: "PUT",
       headers: {
